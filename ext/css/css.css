@@ -1,0 +1,445 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body
+{
+	background:#333333;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	font-size:1em;
+	cursor:default;
+}
+
+/* MAIN CONTAINER */
+#appContainer
+{
+	position:relative;
+	margin:0 auto;
+	width:100%;
+	height:100vh;
+	overflow:hidden;
+}
+
+/* BRANDING */
+#brandingContainer
+{
+	position:absolute;
+	margin:0 auto;
+	top:50px;
+	left:150px;
+	width:auto;
+	height:auto;
+	z-index:100;
+	opacity:0;
+}
+
+.brandingIcon
+{
+	position:relative;
+	display:inline-block;
+	margin:0 auto;
+	top:3px;
+	left:0;
+	width:30px;
+	height:20px;
+	background-color:#ffffff;
+	-webkit-mask:url(img/tomato.svg) no-repeat;
+	mask:url(img/tomato.svg) no-repeat;
+}
+
+.brandingText
+{
+	position:relative;
+	display:inline-block;
+	margin:0 auto;
+	top:0;
+	left:0;
+	width:auto;
+	height:auto;
+	color:#ffffff;
+	font-weight:bold;
+}
+
+/* BKGND CONTAINER */
+#bkgnd
+{
+	position:absolute;
+	margin:0 auto;
+	width:100%;
+	height:100vh;
+	background-color:#ff0000;
+	opacity:0;
+}
+
+/* START SCREEN */
+#startScreenContainer
+{
+	position:absolute;
+	margin:0 auto;
+	width:100%;
+	height:auto;
+	top:0;
+	z-index:10;
+}
+
+.startScreenBlurbMain
+{
+	position:relative;
+	margin:0 auto;
+	top:130px;
+	width:auto;
+	height:auto;
+	text-align:center;
+	color:#ffffff;
+	font-size:2em;
+	opacity:0;
+}
+
+.startScreenBlurbSub
+{
+	position:relative;
+	margin:0 auto;
+	top:140px;
+	width:auto;
+	height:auto;
+	text-align:center;
+	color:#ffffff;
+	font-size:1.1em;
+	opacity:0;
+}
+
+/* INPUT PROMPT */
+#taskPromptContainer
+{
+	position:relative;
+	margin:0 auto;
+	top:230px;
+	width:auto;
+	height:auto;
+	max-width:400px;
+	padding-bottom:10px;
+	border-bottom:1px solid #ffffff;
+	opacity:0;
+}
+
+#inputFieldContainer
+{
+	position:relative;
+	margin:0 auto;
+	width:auto;
+	height:auto;
+	max-width:350px;
+	left:-25px;
+	opacity:.5;
+}
+
+#inputField
+{
+	position:relative;
+	margin:0 auto;
+	width:350px;
+	height:auto;
+	font-size:1.1em;
+	color:#ffffff;
+	background:transparent;
+	border:0;
+	/*font-family:inherit;
+	resize:none;*/
+}
+
+/* BUTTONS */
+.arrowBtn
+{
+	position:absolute;
+	margin:0 auto;
+	width:30px;
+	height:30px;
+	right:0;
+	top:auto;
+	bottom:10px;
+	background-image:url(img/arrowBtn.png);
+	opacity:0;
+}
+
+/* this appended ruleSet MUST come *after* the *above* main ruleSet */
+/* it won't work if it *precedes* the main ruleSet */
+.continueBtn
+{
+	width:100px;
+	height:100px;
+	left:580px;
+	top:40px;
+	background-image:url(img/arrowBtnLG.png);
+}
+
+/* this appended ruleSet MUST come *after* the *above* main ruleSet */
+/* it won't work if it *precedes* the main ruleSet */
+.restartBtn
+{
+	width:60px;
+	height:60px;
+	left:0px;
+	top:0px;
+	background-image:url(img/restartBtn.png);
+}
+
+/* CYCLE SCREEN */
+#cycleContainer
+{
+	position:relative;
+	margin:0 auto;
+	width:100%;
+	height:100vh;
+	z-index:5;
+	opacity:1;
+}
+
+.cycleBlurbMainWindowBox
+{
+	position:relative;
+	margin:0 auto;
+	top:130px;
+	width:auto;
+	height:1.9em;
+	z-index:10;
+	overflow:hidden;
+}
+
+.cycleBlurbMain
+{
+	position:relative;
+	display:block;
+	margin:0 auto;
+	top:1.4em;  /* changed for ANIM BUG, was 0 */
+	margin-top:-1.4em; /* added for ANIM BUG */
+	width:auto;
+	height:1.3em;
+	text-align:center;
+	color:#d4d4d4;
+	font-size:1.5em;
+	opacity:0;  /* added for ANIM BUG */
+}
+
+.cycleBlurbTaskWindowBox
+{
+	position:relative;
+	margin:0 auto;
+	top:140px;
+	width:auto;
+	height:2.4em;
+	z-index:11;
+	overflow:hidden;
+}
+
+.cycleBlurbTask
+{
+	position:relative;
+	margin:0 auto;
+	top:1.3em;  /* changed for ANIM BUG, was 0 */
+	margin-top:-1.3em; /* added for ANIM BUG */
+	width:auto;
+	height:1.2em;
+	text-align:center;
+	color:#9b9b9b;
+	font-size:2em;
+	opacity:0;  /* added for ANIM BUG */
+}
+
+/* CLOCK */
+#clockContainer
+{
+	position:relative;
+	margin:0 auto;
+	top:160px;
+	width:auto;
+	height:9em;
+	overflow:hidden;
+	opacity:1;
+	z-index:15;
+}
+
+.timeDisplay
+{
+	position:relative;
+	margin:0 auto;
+	top:0;
+	width:auto;
+	height:9.5em;
+	text-align:center;
+	color:#ff0000;
+	font-size:9em;
+	opacity:1;
+}
+
+/* STATUS BAR (DOTS) */
+#statusBarContainer
+{
+	position:relative;
+	margin:0 auto;
+	top:230px;
+	width:150px;
+	height:auto;
+	text-align:center;
+	color:#ffffff;
+	list-style-type:none;
+	opacity:1;
+	z-index:20;
+}
+
+.statusDot
+{
+	position:relative;
+	display:inline-block;
+	margin:0 auto;
+	margin-right:10px;
+	left:0;
+	width:15px;
+	height:15px;
+	/*background-color:rgba(255,0,0,0);*/
+	border:solid 3px;
+	border-color:#ff0000;
+	border-radius:50%;
+	opacity:.5;
+}
+
+.statusDotFill
+{
+	position:absolute;
+	margin:0 auto;
+	top:-1px;
+	left:-1px;
+	width:17px;
+	height:17px;
+	background-color:#ff0000;
+	border-radius:50%;
+	opacity:0;
+}
+
+/* SVG FIELD */
+#svgFieldContainer
+{
+	position:absolute;
+	margin:0 auto;
+	top:0;
+	width:100%;
+	height:100vh;
+	z-index:0;
+	opacity:0;
+}
+
+/* SVG CLOUDS */
+.cloud
+{
+	position:absolute;
+	margin:0 auto;
+	background-image:url(img/bulb.svg);
+}
+
+.cloud1
+{
+	width:150px;
+	height:200px;
+	top:120px;
+	left:1000px;
+	background-size:150px 200px;
+	-ms-transform:rotate(-70deg);
+	-webkit-transform:rotate(-70deg);
+	transform:rotate(-70deg);
+}
+
+.cloud2
+{
+	width:450px;
+	height:500px;
+	top:0;
+	left:100px;
+	background-size:450px 500px;
+}
+
+.cloud3
+{
+	width:50px;
+	height:100px;
+	top:100px;
+	left:300px;
+	background-size:50px 100px;
+	-ms-transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
+	transform:rotate(30deg);
+}
+
+/* SVG STARS */
+.star
+{
+	position:absolute;
+	margin:0 auto;
+	background-image:url(img/bulb.svg);
+}
+
+.star1
+{
+	width:50px;
+	height:100px;
+	top:20px;
+	left:600px;
+	background-size:50px 100px;
+	-ms-transform:rotate(-70deg);
+	-webkit-transform:rotate(-70deg);
+	transform:rotate(-70deg);
+}
+
+.star2
+{
+	width:250px;
+	height:300px;
+	top:0;
+	left:100px;
+	background-size:250px 300px;
+}
+
+.star3
+{
+	width:200px;
+	height:250px;
+	top:400px;
+	left:300px;
+	background-size:200px 250px;
+	-ms-transform:rotate(100deg);
+	-webkit-transform:rotate(100deg);
+	transform:rotate(100deg);
+}
+
+.star4
+{
+	width:350px;
+	height:400px;
+	top:70px;
+	left:900px;
+	background-size:350px 400px;
+}
+
+/* RESETTER/RESTART */
+#resetterContainer
+{
+	position:absolute;
+	margin:0 auto;
+	width:60px;
+	height:60px;
+	left:950px;
+	top:40px;
+	opacity:0;
+	z-index:50;
+}
+
+#restartBtnBkgnd
+{
+	position:absolute;
+	margin:0 auto;
+	width:58px;
+	height:58px;
+	left:-1px;
+	top:-1px;
+	border-radius:50%;
+	border:2px solid #ff0000;
+	background-image:url(img/restartBtnBkgnd.png);
+	opacity:.5;
+}

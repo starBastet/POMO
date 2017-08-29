@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "POMO",
+  "description": "This extension will provide a Pomodoro Timer",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "ext/img/icon.png"
+  },
+  "chrome_url_overrides":{
+    "newtab":"index.html"
+  },
+  "background":{
+    "scripts":["ext/js/lib/background.js"],
+    "persistent":false
+  },
+  "permissions":["tabs"]
+}

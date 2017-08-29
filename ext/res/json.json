@@ -1,0 +1,54 @@
+{
+  "BRANDING":["POMO","ffffff"],
+  "START_SCREEN":
+  {
+    "WELCOME_TEXT":"<b>POMO</b> helps you focus.",
+    "WELCOME_SUB_TEXT":"25 minutes on with 5 minute breaks.",
+    "PROMPT_TEXT":"What are you focusing on?",
+    "DEFAULT_TASK_TEXT":"This thing right here",
+    "INPUT_MAX":"40",
+    "BKGND_COLOR":"#ff0000"
+  },
+  "CYCLE_SCREENS":
+  {
+    "ITERATION_MAX":"4",
+    "CLOCK_SOUNDS_A":["ext/snd/wind.m4a","ext/snd/windLong.m4a","ext/snd/tick2.m4a","ext/snd/alarm.m4a"],
+    "FOCUS":
+    {
+      "TEXT_A":["Focusing on"],
+      "TIME":".05",
+      "BKGND_COLOR":"#ffffff",
+      "TEXT_COLOR_A":["#d4d4d4","#9b9b9b"],
+      "CLOCK_COLOR":"#ff0000",
+      "STATUS_BAR_COLOR":"#ff0000"
+    },
+    "REST":
+    {
+      "TEXT_A":["Time for","Resting :)"],
+      "TIME":".05",
+      "BKGND_COLOR":"#00b8ff",
+      "TEXT_COLOR_A":["#ffffff","#ffffff"],
+      "CLOCK_COLOR":"#ffffff",
+      "STATUS_BAR_COLOR":"#ffffff",
+      "SVG_DETAILS":
+      {
+        "CLASS_NAME":"cloud",
+        "AMOUNT":"3"
+      }
+    },
+    "LONG_REST":
+    {
+      "TEXT_A":["You crushed","Enjoy your long rest"],
+      "TIME":".1",
+      "BKGND_COLOR":"#05ad44",
+      "TEXT_COLOR_A":["#ffffff","#ffffff"],
+      "CLOCK_COLOR":"#ffffff",
+      "STATUS_BAR_COLOR":"#000000",
+      "SVG_DETAILS":
+      {
+        "CLASS_NAME":"star",
+        "AMOUNT":"4"
+      }
+    }
+  }
+}
