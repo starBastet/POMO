@@ -2,8 +2,8 @@
   "BRANDING":["POMO","ffffff"],
   "START_SCREEN":
   {
-    "WELCOME_TEXT":"<b>POMO</b> helps you focus.",
-    "WELCOME_SUB_TEXT":"25 minutes on with 5 minute breaks.",
+    "WELCOME_TEXT":"<b>POMO</b> helps you focus",
+    "WELCOME_SUB_TEXT":"25 min on / 5 min rests",
     "PROMPT_TEXT":"What are you focusing on?",
     "DEFAULT_TASK_TEXT":"This thing right here",
     "INPUT_MAX":"40",
@@ -40,7 +40,7 @@
     {
       "TEXT_A":["You crushed","Enjoy your long rest"],
       "TIME":".1",
-      "BKGND_COLOR":"#05ad44",
+      "BKGND_COLOR":"#FF6C00",
       "TEXT_COLOR_A":["#ffffff","#ffffff"],
       "CLOCK_COLOR":"#ffffff",
       "STATUS_BAR_COLOR":"#000000",

@@ -1,12 +1,76 @@
 @charset "UTF-8";
 /* CSS Document */
 
+
+/* END GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+/* END GOOGLE FONTS */
+
+
+/* START CSS RESET */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+
+/* END CSS RESET */
+
 body
 {
 	background:#333333;
-	font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
-	font-size:1em;
+	/*font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;*/
+	font-family: 'Montserrat script=all rev=1', sans-serif;
+	font-size:1.2em;
+	line-height: 1.3em;
 	cursor:default;
+	font-weight: 300;
 }
 
 /* MAIN CONTAINER */
@@ -24,8 +88,8 @@ body
 {
 	position:absolute;
 	margin:0 auto;
-	top:50px;
-	left:150px;
+    top: 40px;
+    left: 3%;
 	width:auto;
 	height:auto;
 	z-index:100;
@@ -98,7 +162,7 @@ body
 {
 	position:relative;
 	margin:0 auto;
-	top:140px;
+	top:150px;
 	width:auto;
 	height:auto;
 	text-align:center;
@@ -166,20 +230,22 @@ body
 {
 	width:100px;
 	height:100px;
-	left:580px;
-	top:40px;
+    left: 45%;
+    top: 130px;
 	background-image:url(img/arrowBtnLG.png);
+    right: inherit;	
 }
 
 /* this appended ruleSet MUST come *after* the *above* main ruleSet */
 /* it won't work if it *precedes* the main ruleSet */
 .restartBtn
 {
-	width:60px;
-	height:60px;
+	width:30px;
+	height:30px;
 	left:0px;
 	top:0px;
 	background-image:url(img/restartBtn.png);
+	background-size: 30px 30px;
 }
 
 /* CYCLE SCREEN */
@@ -197,11 +263,11 @@ body
 {
 	position:relative;
 	margin:0 auto;
-	top:130px;
+	top:100px;
 	width:auto;
 	height:1.9em;
 	z-index:10;
-	overflow:hidden;
+	/*overflow:hidden;*/
 }
 
 .cycleBlurbMain
@@ -223,11 +289,11 @@ body
 {
 	position:relative;
 	margin:0 auto;
-	top:140px;
+	top:160px;
 	width:auto;
-	height:2.4em;
+	height:4em;
 	z-index:11;
-	overflow:hidden;
+	/*overflow:hidden;*/
 }
 
 .cycleBlurbTask
@@ -240,7 +306,7 @@ body
 	height:1.2em;
 	text-align:center;
 	color:#9b9b9b;
-	font-size:2em;
+	font-size:2.5em;
 	opacity:0;  /* added for ANIM BUG */
 }
 
@@ -249,10 +315,10 @@ body
 {
 	position:relative;
 	margin:0 auto;
-	top:160px;
+	top:300px;
 	width:auto;
 	height:9em;
-	overflow:hidden;
+	/*overflow:hidden;*/
 	opacity:1;
 	z-index:15;
 }
@@ -266,8 +332,9 @@ body
 	height:9.5em;
 	text-align:center;
 	color:#ff0000;
-	font-size:9em;
+	font-size:13em;
 	opacity:1;
+	font-weight: 100;
 }
 
 /* STATUS BAR (DOTS) */
@@ -275,7 +342,7 @@ body
 {
 	position:relative;
 	margin:0 auto;
-	top:230px;
+    top: 400px;
 	width:150px;
 	height:auto;
 	text-align:center;
@@ -330,41 +397,47 @@ body
 .cloud
 {
 	position:absolute;
-	margin:0 auto;
-	background-image:url(img/bulb.svg);
+	/*margin:0 auto;*/
+	background-image:url(img/clouds.svg);
+    fill: white;
+    opacity: 0.35;
 }
 
 .cloud1
 {
-	width:150px;
-	height:200px;
-	top:120px;
-	left:1000px;
-	background-size:150px 200px;
-	-ms-transform:rotate(-70deg);
+    width: 1200px;
+    height: 600px;
+    bottom: -250px;
+    right: -350px;
+    background-size: 1200px 600px;
+	fill: white;
+	/*-ms-transform:rotate(-70deg);
 	-webkit-transform:rotate(-70deg);
-	transform:rotate(-70deg);
+	transform:rotate(-70deg);*/
 }
 
 .cloud2
 {
-	width:450px;
-	height:500px;
-	top:0;
-	left:100px;
-	background-size:450px 500px;
+    width: 800px;
+    height: 500px;
+    bottom: -200px;
+    left: -250px;
+    background-size: 800px 500px;
+	fill: white;
+
 }
 
 .cloud3
 {
-	width:50px;
-	height:100px;
+	display: none;
+	width: 500px;
+	height: 300px;
 	top:100px;
 	left:300px;
-	background-size:50px 100px;
-	-ms-transform:rotate(30deg);
+	background-size: 500px 300px;
+	/*-ms-transform:rotate(30deg);
 	-webkit-transform:rotate(30deg);
-	transform:rotate(30deg);
+	transform:rotate(30deg);*/
 }
 
 /* SVG STARS */
@@ -372,16 +445,17 @@ body
 {
 	position:absolute;
 	margin:0 auto;
-	background-image:url(img/bulb.svg);
+	background-image:url(img/star.svg);
+	opacity: 0.25;
 }
 
 .star1
 {
-	width:50px;
-	height:100px;
-	top:20px;
-	left:600px;
-	background-size:50px 100px;
+	width: 100px;
+	height: 200px;
+	top: 20px;
+	left: 50%;
+	background-size: 100px 200px;
 	-ms-transform:rotate(-70deg);
 	-webkit-transform:rotate(-70deg);
 	transform:rotate(-70deg);
@@ -389,20 +463,20 @@ body
 
 .star2
 {
-	width:250px;
-	height:300px;
+	width: 500px;
+	height: 600px;
 	top:0;
-	left:100px;
-	background-size:250px 300px;
+	left: 1%;
+	background-size: 500px 600px;
 }
 
 .star3
 {
-	width:200px;
-	height:250px;
+	width: 400px;
+	height: 500px;
 	top:400px;
-	left:300px;
-	background-size:200px 250px;
+	left: 20%;
+	background-size: 400px 500px;
 	-ms-transform:rotate(100deg);
 	-webkit-transform:rotate(100deg);
 	transform:rotate(100deg);
@@ -410,11 +484,14 @@ body
 
 .star4
 {
-	width:350px;
-	height:400px;
-	top:70px;
-	left:900px;
-	background-size:350px 400px;
+    width: 700px;
+    height: 800px;
+    top: 70px;
+    left: 50%;
+    background-size: 700px 800px;
+    -ms-transform: rotate(100deg);
+    -webkit-transform: rotate(100deg);
+    transform: rotate(100deg);
 }
 
 /* RESETTER/RESTART */
@@ -422,10 +499,10 @@ body
 {
 	position:absolute;
 	margin:0 auto;
-	width:60px;
-	height:60px;
-	left:950px;
-	top:40px;
+	width:30px;
+	height:30px;
+	right: 3%;
+    top: 80px;
 	opacity:0;
 	z-index:50;
 }
@@ -434,12 +511,13 @@ body
 {
 	position:absolute;
 	margin:0 auto;
-	width:58px;
-	height:58px;
+	width:30px;
+	height:30px;
 	left:-1px;
 	top:-1px;
 	border-radius:50%;
 	border:2px solid #ff0000;
 	background-image:url(img/restartBtnBkgnd.png);
+	background-size: 30px 30px;
 	opacity:.5;
 }
