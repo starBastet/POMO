@@ -1,7 +1,7 @@
 define(
 	[
 		'app/views/util/Blurb',
-		'app/views/StartScreen/util/TaskPrompt'
+		'app/views/util/TaskPrompt'
 	],
 	function (Blurb,TaskPrompt)
 	{

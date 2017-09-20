@@ -16,6 +16,7 @@ define(
 		SoundManager.prototype.init = function()
 		{
 			this.createSounds();
+			this.adjustVolume();
 		}
 		
 		SoundManager.prototype.createSounds = function()
@@ -32,6 +33,11 @@ define(
 			this.soundA[soundNum].pause();
 			this.soundA[soundNum].currentTime = 0;
 			this.soundA[soundNum].play();
+		}
+		
+		SoundManager.prototype.adjustVolume = function()
+		{
+			this.soundA[2].volume = .13;
 		}
 		
 		return SoundManager;

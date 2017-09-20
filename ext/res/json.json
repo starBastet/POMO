@@ -11,12 +11,11 @@
   },
   "CYCLE_SCREENS":
   {
-    "ITERATION_MAX":"4",
-    "CLOCK_SOUNDS_A":["ext/snd/wind.m4a","ext/snd/windLong.m4a","ext/snd/tick2.m4a","ext/snd/alarm.m4a"],
+    "CLOCK_SOUNDS_A":["ext/snd/wind.m4a","ext/snd/windLong.m4a","ext/snd/tick2.m4a","ext/snd/alarmShort.m4a","ext/snd/alarmLong.m4a","ext/snd/5min.m4a"],
     "FOCUS":
     {
       "TEXT_A":["Focusing on"],
-      "TIME":".05",
+      "TIME":"25",
       "BKGND_COLOR":"#ffffff",
       "TEXT_COLOR_A":["#d4d4d4","#9b9b9b"],
       "CLOCK_COLOR":"#ff0000",
@@ -25,24 +24,26 @@
     "REST":
     {
       "TEXT_A":["Time for","Resting :)"],
-      "TIME":".05",
+      "TIME":"5",
+      "LONG_REST_TIME":"30",
       "BKGND_COLOR":"#00b8ff",
       "TEXT_COLOR_A":["#ffffff","#ffffff"],
       "CLOCK_COLOR":"#ffffff",
       "STATUS_BAR_COLOR":"#ffffff",
+      "LONG_REST_BTN_TEXT":"<p class='longRestBtnSmallText'>LONG REST</p><p><span class='longRestBtnLargeText'<b>30</b></span><span class='longRestBtnSmallText'>MIN</span></p>",
       "SVG_DETAILS":
       {
         "CLASS_NAME":"cloud",
         "AMOUNT":"2"
       }
     },
-    "LONG_REST":
+    "CRUSHED":
     {
-      "TEXT_A":["You crushed","Enjoy your long rest"],
-      "TIME":".1",
+      "TEXT_A":["You crushed your tomato! Great job!","Where to next?"],
+      "INPUT_MAX":"40",
       "BKGND_COLOR":"#FF6C00",
       "TEXT_COLOR_A":["#ffffff","#ffffff"],
-      "CLOCK_COLOR":"#ffffff",
+      "CLOCK_COLOR":"#FF6C00",
       "STATUS_BAR_COLOR":"#000000",
       "SVG_DETAILS":
       {

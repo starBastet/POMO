@@ -1,6 +1,6 @@
 define(
 	[
-		'app/views/StartScreen/util/InputField',
+		'app/views/util/InputField',
 		'app/views/util/ArrowBtn'
 	],
 	function(InputField,ArrowBtn)
@@ -61,12 +61,22 @@ define(
 			_taskPrompt.arrowBtn.removeItemFunc();
 			_taskPrompt.removeListeners();
 			_taskPrompt.enteredText = _taskPrompt.inputField.inputField.value;
+			
+			$(_taskPrompt.container).trigger('analyticsRequest','v1_pomoStart');
 		}
 		
 		TaskPrompt.prototype.callRemoval = function()
 		{
 			this.removeListeners();
 			this.inputField.callRemoval();
+		}
+		
+		TaskPrompt.prototype.fader = function()
+		{
+			this.callRemoval();
+			$(this.container).animate({opacity:0},500,function(){
+				$(this).trigger('taskPromptFaded');
+			});
 		}
 		
 		return TaskPrompt;

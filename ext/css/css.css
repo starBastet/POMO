@@ -183,6 +183,7 @@ body
 	padding-bottom:10px;
 	border-bottom:1px solid #ffffff;
 	opacity:0;
+	z-index:36;
 }
 
 #inputFieldContainer
@@ -193,7 +194,7 @@ body
 	height:auto;
 	max-width:350px;
 	left:-25px;
-	opacity:.5;
+	opacity:1;
 }
 
 #inputField
@@ -206,8 +207,14 @@ body
 	color:#ffffff;
 	background:transparent;
 	border:0;
+	opacity:.5;
 	/*font-family:inherit;
 	resize:none;*/
+}
+
+#inputField:focus
+{
+	opacity:1;
 }
 
 /* BUTTONS */
@@ -246,6 +253,32 @@ body
 	top:0px;
 	background-image:url(img/restartBtn.png);
 	background-size: 30px 30px;
+}
+
+.longRestBtn
+{
+	position:absolute;
+	margin:0 auto;
+	width:130px;
+	height:90px;
+	padding-top:40px;
+	top:130px;
+	left:46%;
+	border-radius:50%;
+	color:#00b8ff;
+	text-align:center;
+	background-color:#ffffff;
+	opacity:0;
+}
+
+.longRestBtnSmallText
+{
+	font-size:1em;
+}
+
+.longRestBtnLargeText
+{
+	font-size:2em;
 }
 
 /* CYCLE SCREEN */

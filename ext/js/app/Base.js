@@ -1,12 +1,13 @@
 define(
 	[
+		'app/util/AnalyticsMachine',
 		'app/util/Branding',
 		'app/util/SoundManager',
 		'app/views/util/Bkgnd',
 		'app/views/StartScreen/StartScreen',
 		'app/views/CycleScreen/CycleScreen'
 	],
-	function(Branding,SoundManager,Bkgnd,StartScreen,CycleScreen)
+	function(AnalyticsMachine,Branding,SoundManager,Bkgnd,StartScreen,CycleScreen)
 	{
 		var _base;
 		
@@ -18,12 +19,14 @@ define(
 			this.container;
 			
 			this.MACHINE_STATE = 0;
+			this.analyticsMachine;
 			this.branding;
 			this.soundManager;
 			this.bkgnd;
 			this.startScreen;
 			this.cycleScreen;
 			this.enteredText;
+			this.pomoCount = 0;
 			
 			this.container = document.createElement('div');
 			this.container.id = 'appContainer';
@@ -34,6 +37,7 @@ define(
 		
 		Base.prototype.init = function()
 		{
+			this.createAnalyticsMachine();
 			this.createBranding();
 			this.createSoundManager();
 			this.createBackground();
@@ -50,12 +54,38 @@ define(
 			this.updateState();
 		}
 		
+		Base.prototype.updatePomoCount = function()
+		{
+			this.pomoCount++;
+			this.callToUpdateAnalytics(null,'v1_pomoCrushed');
+			
+			// for now, this singleton, until more features are added:
+			if (this.pomoCount === 2)
+			{
+				this.callToUpdateAnalytics(null,'v1_doubleDip');
+			}
+		}
+		
+/////////////////////    GOOGLE ANALYTICS
+		Base.prototype.createAnalyticsMachine = function()
+		{
+			this.analyticsMachine = new AnalyticsMachine();
+			//this.container.appendChild(this.analyticsMachine.container);
+		}
+		
+		Base.prototype.callToUpdateAnalytics = function(e,type)
+		{
+			_base.analyticsMachine.track(type);
+		}
+		
+/////////////////////    BRANDING
 		Base.prototype.createBranding = function()
 		{
 			this.branding = new Branding(this.JSON_A.BRANDING[0]);
 			this.container.appendChild(this.branding.container);
 		}
 		
+/////////////////////    SOUNDS
 		Base.prototype.createSoundManager = function()
 		{
 			this.soundManager = new SoundManager(this.JSON_A.CYCLE_SCREENS.CLOCK_SOUNDS_A);
@@ -63,9 +93,14 @@ define(
 		
 		Base.prototype.callToPlaySound = function(e,soundNum)
 		{
+			if (soundNum === 3 && _base.cycleScreen.PHASE_NUM === 1)
+			{
+				soundNum = 4;
+			}
 			_base.soundManager.playSound(soundNum);
 		}
 		
+/////////////////////    BACKGROUNDS
 		Base.prototype.createBackground = function()
 		{
 			this.bkgnd = new Bkgnd(this.JSON_A.START_SCREEN.BKGND_COLOR);
@@ -85,8 +120,10 @@ define(
 			}
 		}
 		
+/////////////////////    LISTENERS
 		Base.prototype.addListeners = function()
 		{
+			$(this.container).on('analyticsRequest',this.callToUpdateAnalytics);
 			$(this.container).on('soundRequest',this.callToPlaySound);
 			$(this.container).on('startScreenRemoved',this.startScreenRemoved);
 			$(this.container).on('cycleScreenRemoved',this.cycleScreenRemoved);
@@ -94,12 +131,14 @@ define(
 			$(this.container).on('advancePhase',this.advancePhase);
 		}
 		
+/////////////////////    CHANGE MACHINE STATE
 		Base.prototype.changeState = function(e)
 		{
 			_base.MACHINE_STATE++;
 			_base.updateState();
 		}
 		
+/////////////////////    START SCREEN
 		Base.prototype.createStartScreen = function()
 		{
 			if (this.startScreen != null)
@@ -116,6 +155,7 @@ define(
 			_base.startScreen = null;
 		}
 		
+/////////////////////    CYCLE SCREEN
 		Base.prototype.createCycleScreen = function()
 		{
 			if (this.enteredText === this.JSON_A.START_SCREEN.PROMPT_TEXT)
@@ -124,7 +164,7 @@ define(
 			}
 			this.cycleScreen = new CycleScreen(this.JSON_A.CYCLE_SCREENS,this.enteredText);
 			this.container.appendChild(this.cycleScreen.container);
-			this.cycleScreen.clock.init();
+			this.cycleScreen.clock.init(); // had to do this out here for some reason...? Closure, or some sh*t?
 			
 			this.bkgnd.animateColor(this.JSON_A.CYCLE_SCREENS.FOCUS.BKGND_COLOR);
 			this.branding.animateColor(this.JSON_A.CYCLE_SCREENS.FOCUS.CLOCK_COLOR);
@@ -137,6 +177,7 @@ define(
 			_base.reinitialize();
 		}
 		
+/////////////////////    ADVANCE PHASE
 		Base.prototype.advancePhase = function(e)
 		{
 			var bkgndColor;
@@ -154,8 +195,10 @@ define(
 			}
 			else
 			{
-				bkgndColor = _base.JSON_A.CYCLE_SCREENS.LONG_REST.BKGND_COLOR;
-				brandingColor = _base.JSON_A.CYCLE_SCREENS.LONG_REST.CLOCK_COLOR;
+				bkgndColor = _base.JSON_A.CYCLE_SCREENS.CRUSHED.BKGND_COLOR;
+				brandingColor = _base.JSON_A.CYCLE_SCREENS.CRUSHED.CLOCK_COLOR;
+				
+				_base.updatePomoCount(); 
 			}
 			
 			_base.bkgnd.animateColor(bkgndColor);

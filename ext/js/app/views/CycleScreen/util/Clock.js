@@ -164,12 +164,29 @@ define(
 				_clock.createTimer('hold');
 				$(_clock.container).trigger('soundRequest',3);
 			}
+			else if (Number(_clock.minutes) === 5 && Number(_clock.seconds) === 0)
+			{
+				$(_clock.container).trigger('soundRequest',5);
+			}
 		}
 		
 		Clock.prototype.hold = function(e)
 		{
 			_clock.stopTimer();
 			$(_clock.container).trigger('phaseChanged');
+		}
+		
+		Clock.prototype.fader = function()
+		{
+			$(this.container).animate({opacity:0},500,function(){
+				$(this).trigger('clockFaded');
+				this.parentNode.removeChild(this);
+			});
+		}
+		
+		Clock.prototype.recall = function()
+		{
+			$(this.container).animate({opacity:1});
 		}
 		
 		Clock.prototype.callRemoval = function()
